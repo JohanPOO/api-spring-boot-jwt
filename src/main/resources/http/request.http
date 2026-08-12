@@ -1,0 +1,59 @@
+### PERSONA FINDALLTRUE
+GET http://localhost:8080/api/find-all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODYzOTQ2NDcsImV4cCI6MTc4NjM5NDcwN30.QS7wKVtIju9WJ-GYHisCalxyO1Zoe1NwP-6vauHHGxo
+
+### PERSONA FINDBYID
+GET http://localhost:8080/api/find/2
+
+### PERSONA SAVE
+POST http://localhost:8080/api/save
+Content-Type: application/json
+
+{
+    "nombre" : "lolo",
+    "email" : "lolo@gmail.com"
+}
+
+### PERSONA PUT
+PUT http://localhost:8080/api/update/2
+Content-Type: application/json
+
+{
+    "nombre": "11johan",
+    "email": "11email.com"
+}
+
+### PERSONA DELETE
+DELETE http://localhost:8080/api/delete/2
+
+
+
+
+### USUARIO GETALL
+GET http://localhost:8080/usuario/find-all
+
+###USUARIO GETBYID
+GET http://localhost:8080/usuario/find/1
+
+### USUARIO SAVE
+POST http://localhost:8080/usuario/save
+Content-Type: application/json
+
+{
+    "usuario" : "us3",
+    "contraseña" : "us3",
+    "persona_id" : 5
+}
+
+### USUARIO PUT
+PUT http://localhost:8080/usuario/update/6
+Content-Type: application/json
+
+{
+    "usuario" : "usuario7",
+    "contraseña" : "password7",
+    "persona_id" : 2
+}
+
+### USUARIO DELETE
+DELETE http://localhost:8080/usuario/delete/8

@@ -1,0 +1,28 @@
+### EMPLEADO GETALL
+GET http://localhost:8080/empleado/find-all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czEiLCJpYXQiOjE3ODYzMTg3MzMsImV4cCI6MTc4NjQwNTEzM30.ZLDIdEx8tF5ucWdEVspgtlERezBaMcvXIUGLDDY4XO0
+
+### EMPLEADO GETBYID
+GET http://localhost:8080/empleado/find/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czEiLCJpYXQiOjE3ODYzMTg3MzMsImV4cCI6MTc4NjQwNTEzM30.ZLDIdEx8tF5ucWdEVspgtlERezBaMcvXIUGLDDY4XO0
+
+### EMPLEADO SAVE
+POST http://localhost:8080/empleado/save
+Content-Type: application/json
+
+{
+    "persona_id" : 1,
+    "rol" : "PSICOLOGO"
+}
+
+### EMPLEADO PUT
+PUT http://localhost:8080/empleado/update/2
+Content-Type: application/json
+
+{
+    "persona_id" : 3,
+    "rol" : "ADMIN"
+}
+
+### EMPLEADO DELETE
+DELETE http://localhost:8080/empleado/delete/2

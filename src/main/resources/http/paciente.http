@@ -1,0 +1,26 @@
+### PACIENTE GETALL
+GET http://localhost:8080/paciente/find-all
+
+### PACIENTE GETBYID
+GET http://localhost:8080/paciente/find/2
+
+### PACIENTE SAVE
+POST http://localhost:8080/paciente/save
+Content-Type: application/json
+
+{
+    "id_persona" : 7,
+    "rol" : "paciente"
+}
+
+### PACIENTE PUT
+PUT http://localhost:8080/paciente/update/2
+Content-Type: application/json
+
+{
+    "id_persona" : 5,
+    "rol" : "pacientee"
+}
+
+### PACIENTE DELETE
+DELETE http://localhost:8080/paciente/delete/3
