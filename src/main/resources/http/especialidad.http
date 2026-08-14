@@ -1,0 +1,27 @@
+### ESPECIALIDAD GETALL
+GET http://localhost:8080/especialidad/find-all
+
+### ESPECIALIDAD GETBYID
+GET http://localhost:8080/especialidad/find/1
+
+### ESPECIALIDAD SAVE
+POST http://localhost:8080/especialidad/save
+Content-Type: application/json
+
+{
+    "nombre" : "especialidad2",
+    "estado" : true
+}
+
+### ESPECIALIDAD PUT
+PUT http://localhost:8080/especialidad/update/2
+Content-Type: application/json
+
+{
+    "nombre" : "espe2",
+    "estado" : true
+}
+
+
+### ESPECIALIDAD DELETE
+DELETE http://localhost:8080/especialidad/delete/2

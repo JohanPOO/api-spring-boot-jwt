@@ -1,0 +1,27 @@
+### MEDICOESPEC GETALL
+GET http://localhost:8080/medicoespecialidad/find-all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODYzOTQ2NDcsImV4cCI6MTc4NjM5NDcwN30.QS7wKVtIju9WJ-GYHisCalxyO1Zoe1NwP-6vauHHGxo
+
+### MEDICOESPEC GETBYID
+GET http://localhost:8080/medicoespecialidad/find/empleado/1/especialidad/2
+
+### MEDICOESPEC SAVE
+POST http://localhost:8080/medicoespecialidad/save
+Content-Type: application/json
+
+{
+    "empleado_id" : 3,
+    "especialidad_id" : 2
+}
+
+### MEDICOESPEC PUT
+PUT http://localhost:8080/medicoespecialidad/update/empleado/1/especialidad/1
+Content-Type: application/json
+
+{
+    "empleado_id" : 3,
+    "especialidad_id" : 1
+}
+
+### MEDICOESPEC DELETE
+DELETE http://localhost:8080/medicoespecialidad/delete/empleado/1/especialidad/2
