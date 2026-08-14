@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +61,38 @@ public class AtencionImpl implements AtencionService {
         }
 
         return responseAtencionesMias;
+    }
+
+    @Override
+    public List<AtencionResponseDto> findByFecha(LocalDate fecha) {
+
+        List<AtencionResponseDto> responseDtoList = new ArrayList<>();
+
+        List<Atencion> listaAtencionFecha = repository.findByFecha(fecha);
+
+        if(listaAtencionFecha.isEmpty()) throw new NullPointerExceptionError("No hay atenciones en esa fecha");
+
+        for (Atencion atencion : listaAtencionFecha){
+            responseDtoList.add(mapper.toDto(atencion));
+        }
+
+        return responseDtoList;
+    }
+
+    @Override
+    public List<AtencionResponseDto> findByMedico(String nombre) {
+
+        List<AtencionResponseDto> responseDtoList = new ArrayList<>();
+
+        List<Atencion> listaAtencionMedico = repository.findByMedico(nombre);
+
+        if(listaAtencionMedico.isEmpty()) throw new NullPointerExceptionError("No hay atenciones de ese medico");
+
+        for (Atencion atencion : listaAtencionMedico){
+            responseDtoList.add(mapper.toDto(atencion));
+        }
+
+        return responseDtoList;
     }
 
     @Override

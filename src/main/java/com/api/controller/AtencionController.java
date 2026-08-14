@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -41,6 +42,28 @@ public class AtencionController {
         responseDto.setStatus(HttpStatus.OK);
         responseDto.setMessage("Successful");
         responseDto.setData(listasMias);
+
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @GetMapping("/fecha/{fecha}")
+    public ResponseEntity<?> findByFecha(@PathVariable LocalDate fecha) {
+
+        ResponseDto<List<AtencionResponseDto>> responseDto = new ResponseDto<>();
+        responseDto.setStatus(HttpStatus.OK);
+        responseDto.setMessage("Successful");
+        responseDto.setData(service.findByFecha(fecha));
+
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @GetMapping("/medico/{medico}")
+    public ResponseEntity<?> findByMedico(@PathVariable String medico) {
+
+        ResponseDto<List<AtencionResponseDto>> responseDto = new ResponseDto<>();
+        responseDto.setStatus(HttpStatus.OK);
+        responseDto.setMessage("Successful");
+        responseDto.setData(service.findByMedico(medico));
 
         return ResponseEntity.ok(responseDto);
     }

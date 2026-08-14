@@ -5,6 +5,17 @@ GET http://localhost:8080/atencion/fin-all
 GET http://localhost:8080/api/atenciones/mias
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czEiLCJpYXQiOjE3ODY2NjI1NjEsImV4cCI6MTc4NjY2MzE2MX0.E7morL5fBoW1fm_bVc0nPD0Za3kZMEItoljawoz3wR4
 
+
+### ATENCION GETBYMEDICO
+GET http://localhost:8080/api/atenciones/medico/johan2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODY2NzgwOTEsImV4cCI6MTc4NjY3ODY5MX0.F_YXBC_FP9ZyN94zGZMjziBdiKM704Jx6aTC8PGonfk
+
+
+### ATENCION GETBYFECHA
+GET http://localhost:8080/api/atenciones/fecha/2026-01-13
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODY2NzgwOTEsImV4cCI6MTc4NjY3ODY5MX0.F_YXBC_FP9ZyN94zGZMjziBdiKM704Jx6aTC8PGonfk
+
+
 ### ATENCION GETBYID
 GET http://localhost:8080/atencion/find/1
 

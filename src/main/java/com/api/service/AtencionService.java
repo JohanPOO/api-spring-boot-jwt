@@ -4,6 +4,7 @@ import com.api.dto.atencion.AtencionRequestDto;
 import com.api.dto.atencion.AtencionResponseDto;
 import org.springframework.security.core.Authentication;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface AtencionService {
@@ -11,6 +12,10 @@ public interface AtencionService {
     List<AtencionResponseDto> findAll();
 
     List<AtencionResponseDto> findByMias(Authentication authentication);
+
+    List<AtencionResponseDto> findByFecha(LocalDate fecha);
+
+    List<AtencionResponseDto> findByMedico(String nombre);
 
     AtencionResponseDto findById(Long id);
 
