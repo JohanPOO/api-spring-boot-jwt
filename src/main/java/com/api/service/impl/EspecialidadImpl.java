@@ -9,6 +9,8 @@ import com.api.mapper.EspecialidadMapper;
 import com.api.repository.EspecialidadRepository;
 import com.api.service.EspecialidadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,8 +26,8 @@ public class EspecialidadImpl implements EspecialidadService {
     private EspecialidadMapper mapper;
 
     @Override
-    public List<EspecialidadResponseDto> findAll() {
-        List<Especialidad> listaEspecialidad = repository.findAll();
+    public List<EspecialidadResponseDto> findAll(Boolean estado, Pageable pageable) {
+        Page<Especialidad> listaEspecialidad = repository.findByEstado(estado, pageable);
         List<EspecialidadResponseDto> listEspecialidadDto = new ArrayList<>();
 
         for ( Especialidad especialidad : listaEspecialidad) {

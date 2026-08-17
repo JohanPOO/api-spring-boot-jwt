@@ -10,6 +10,8 @@ import com.api.repository.EmpleadoRepository;
 import com.api.repository.PersonaRepository;
 import com.api.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,8 +28,8 @@ public class EmpleadoImpl implements EmpleadoService {
     private EmpleadoMapper mapper;
 
     @Override
-    public List<EmpleadoResponseDto> findAll() {
-        List<Empleado> listaPacientes = repository.findByEstadoTrue();
+    public List<EmpleadoResponseDto> findAll(Boolean estado, Pageable pageable) {
+        Page<Empleado> listaPacientes = repository.findByEstadoTrue(estado, pageable);
 
         List<EmpleadoResponseDto> listaPacientesDto = new ArrayList<>();
 

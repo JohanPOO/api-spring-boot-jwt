@@ -9,6 +9,7 @@ import com.api.repository.UsuarioRepository;
 import com.api.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,9 @@ public class UsuarioController {
     private UsuarioService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAll(Pageable pageable){
 
-        List<UsuarioResponseDto> listaUsuario = service.findAll();
+        List<UsuarioResponseDto> listaUsuario = service.findAll(pageable);
 
         ResponseDto<List<UsuarioResponseDto>> response = new ResponseDto<>();
 

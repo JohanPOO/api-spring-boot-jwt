@@ -1,17 +1,19 @@
 ### PERSONA FINDALLTRUE
-GET http://localhost:8080/api/find-all
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODYzOTQ2NDcsImV4cCI6MTc4NjM5NDcwN30.QS7wKVtIju9WJ-GYHisCalxyO1Zoe1NwP-6vauHHGxo
+GET http://localhost:8080/api/personas?page=0&size=10&estado=true
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODY5OTg2MjQsImV4cCI6MTc4Njk5OTIyNH0.VEw11ULtylF2oFWAdF8yVIymzCN_sYuxoBpUSAm-VKY
+
 
 ### PERSONA FINDBYID
 GET http://localhost:8080/api/find/2
 
 ### PERSONA SAVE
-POST http://localhost:8080/api/save
+POST http://localhost:8080/api/personas
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODY5OTY3MzMsImV4cCI6MTc4Njk5NzMzM30.Pay5nd7e510TV_-p0Qb8LinwIdWHkSHLDZldcj16YLE
 
 {
-    "nombre" : "lolo",
-    "email" : "lolo@gmail.com"
+    "nombre" : "lolo9",
+    "email" : "lolo9@gmail.com"
 }
 
 ### PERSONA PUT
@@ -24,7 +26,8 @@ Content-Type: application/json
 }
 
 ### PERSONA DELETE
-DELETE http://localhost:8080/api/delete/2
+DELETE http://localhost:8080/api/personas/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODY5OTg2MjQsImV4cCI6MTc4Njk5OTIyNH0.VEw11ULtylF2oFWAdF8yVIymzCN_sYuxoBpUSAm-VKY
 
 
 
@@ -56,4 +59,4 @@ Content-Type: application/json
 }
 
 ### USUARIO DELETE
-DELETE http://localhost:8080/usuario/delete/8
+DELETE http://localhost:8080/usuario/delete/2

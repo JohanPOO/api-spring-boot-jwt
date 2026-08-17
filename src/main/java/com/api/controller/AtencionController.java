@@ -7,6 +7,7 @@ import com.api.repository.AtencionRepository;
 import com.api.service.AtencionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -23,12 +24,12 @@ public class AtencionController {
     private AtencionService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAll(@RequestParam Boolean estado, Pageable pageable){
 
         ResponseDto<List<AtencionResponseDto>> responseDto = new ResponseDto<>();
         responseDto.setStatus(HttpStatus.OK);
         responseDto.setMessage("Successful");
-        responseDto.setData(service.findAll());
+        responseDto.setData(service.findAll(estado, pageable));
 
         return ResponseEntity.ok(responseDto);
     }
@@ -105,7 +106,7 @@ public class AtencionController {
         responseDto.setMessage("Successful");
         responseDto.setData(atencionResponseDto);
 
-        return ResponseEntity.ok(atencionResponseDto);
+        return ResponseEntity.ok(responseDto);
     }
 
     @DeleteMapping("/{id}")

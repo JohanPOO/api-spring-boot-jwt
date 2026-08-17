@@ -6,6 +6,7 @@ import com.api.dto.paciente.PacienteResponseDto;
 import com.api.service.PacienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ public class PacienteController {
     private PacienteService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAllTrue(){
-        List<PacienteResponseDto> listaPacienteResponseDto = service.findAll();
+    public ResponseEntity<?> findAllTrue(@RequestParam Boolean estado, Pageable pageable){
+        List<PacienteResponseDto> listaPacienteResponseDto = service.findAll(estado, pageable);
 
         ResponseDto<List<PacienteResponseDto>> response = new ResponseDto<>();
         response.setStatus(HttpStatus.OK);

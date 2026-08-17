@@ -6,6 +6,7 @@ import com.api.dto.especialidad.EspecialidadResponseDto;
 import com.api.service.EspecialidadService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,12 @@ public class EspecialidadController {
     private EspecialidadService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAll(@RequestParam Boolean estado, Pageable pageable){
         ResponseDto<List<EspecialidadResponseDto>> response = new ResponseDto<>();
 
         response.setStatus(HttpStatus.OK);
         response.setMessage("Successful");
-        response.setData(service.findAll());
+        response.setData(service.findAll(estado, pageable));
 
         return ResponseEntity.ok(response);
     }

@@ -11,6 +11,8 @@ import com.api.repository.EspecialidadRepository;
 import com.api.repository.MedicoEspecialidadRepository;
 import com.api.service.MedicoEspecialidadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,9 +31,9 @@ public class MedicoEspecialidadImpl implements MedicoEspecialidadService {
     private MedicoEspecialidadMapper mapper;
 
     @Override
-    public List<MedicoEspecialidadResponseDto> findAll() {
+    public List<MedicoEspecialidadResponseDto> findAll(Pageable pageable) {
 
-        List<MedicoEspecialidad> listaMedicoEspecialidad = repository.findAll();
+        Page<MedicoEspecialidad> listaMedicoEspecialidad = repository.findAll(pageable);
         List<MedicoEspecialidadResponseDto> responseDtoList = new ArrayList<>();
 
         for (MedicoEspecialidad medicoEspecialidad : listaMedicoEspecialidad){

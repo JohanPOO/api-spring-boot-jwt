@@ -6,10 +6,13 @@ import com.api.entity.Persona;
 import com.api.mapper.PersonaMapper;
 import com.api.repository.PersonaRepository;
 import com.api.service.PersonaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,8 +27,9 @@ public class PersonaImpl implements PersonaService {
     private PersonaMapper mapper;
 
     @Override
-    public List<PersonaResponseDto> list() {
-        List<Persona> listPersonas = repository.findByEstadoTrue();
+    public List<PersonaResponseDto> list(Boolean estado, Pageable pageable) {
+
+        Page<Persona> listPersonas = repository.findByEstado(estado, pageable);
         List<PersonaResponseDto> listPersonaDto = new ArrayList<>();
 
         for ( Persona persona : listPersonas) {

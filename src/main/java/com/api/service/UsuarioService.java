@@ -2,12 +2,13 @@ package com.api.service;
 
 import com.api.dto.usuario.UsuarioRequestDto;
 import com.api.dto.usuario.UsuarioResponseDto;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface UsuarioService {
 
-    List<UsuarioResponseDto> findAll();
+    List<UsuarioResponseDto> findAll(Pageable pageable);
 
     UsuarioResponseDto findById(Long id);
 

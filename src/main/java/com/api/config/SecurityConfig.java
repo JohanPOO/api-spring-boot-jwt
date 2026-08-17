@@ -51,7 +51,7 @@ public class SecurityConfig {
                         //Pacientes
                         .requestMatchers("/pacientes/**").hasAnyRole("ADMIN", "MEDICO")
                         //Personas
-                        .requestMatchers("/pacientes/**").hasRole("ADMIN")
+                        .requestMatchers("/personas/**").hasRole("ADMIN")
                         //Usuario
                         .requestMatchers("/usuarios/**").hasRole("ADMIN")
                         .anyRequest().authenticated()

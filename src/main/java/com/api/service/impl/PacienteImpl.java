@@ -9,6 +9,8 @@ import com.api.repository.PacienteRepository;
 import com.api.repository.PersonaRepository;
 import com.api.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,9 +27,9 @@ public class PacienteImpl implements PacienteService {
     private PacienteMapper mapper;
 
     @Override
-    public List<PacienteResponseDto> findAll() {
+    public List<PacienteResponseDto> findAll(Boolean estado, Pageable pageable) {
 
-        List<Paciente> listaPacientes = repository.findByEstadoTrue();
+        Page<Paciente> listaPacientes = repository.findByEstadoTrue(estado, pageable);
 
         List<PacienteResponseDto> listaPacientesDto = new ArrayList<>();
 

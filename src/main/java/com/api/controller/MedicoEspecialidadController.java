@@ -6,6 +6,7 @@ import com.api.dto.medicoespecialidad.MedicoEspecialidadResponseDto;
 import com.api.service.MedicoEspecialidadService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,12 @@ public class MedicoEspecialidadController {
     private MedicoEspecialidadService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAll(Pageable pageable){
 
         ResponseDto<List<MedicoEspecialidadResponseDto>> responseDto = new ResponseDto<>();
         responseDto.setStatus(HttpStatus.OK);
         responseDto.setMessage("Successful");
-        responseDto.setData(service.findAll());
+        responseDto.setData(service.findAll(pageable));
 
         return ResponseEntity.ok(responseDto);
     }

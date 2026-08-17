@@ -10,6 +10,8 @@ import com.api.repository.UsuarioRepository;
 import com.api.service.UsuarioService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,9 +30,9 @@ public class UsuarioImpl implements UsuarioService {
     private UsuarioMapper mapper;
 
     @Override
-    public List<UsuarioResponseDto> findAll() {
+    public List<UsuarioResponseDto> findAll(Pageable pageable) {
 
-        List<Usuario> listaUsuarios = repository.findAll();
+        Page<Usuario> listaUsuarios = repository.findAll(pageable);
         List<UsuarioResponseDto> listaUsuarioDto = new ArrayList<>();
 
         for(Usuario usuario : listaUsuarios){

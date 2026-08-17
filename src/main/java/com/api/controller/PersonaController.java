@@ -6,6 +6,7 @@ import com.api.dto.persona.PersonaResponseDto;
 import com.api.service.PersonaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,14 @@ public class PersonaController {
     private PersonaService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAll() {
+    public ResponseEntity<?> findAll(@RequestParam Boolean estado, Pageable pageable) {
+
+        List<PersonaResponseDto> listFindAll = service.list(estado, pageable);
 
         ResponseDto<List<PersonaResponseDto>> responseDto = new ResponseDto<>();
         responseDto.setStatus(HttpStatus.OK);
         responseDto.setMessage("Success");
-        responseDto.setData(service.list());
+        responseDto.setData(listFindAll);
 
         return ResponseEntity.ok(responseDto);
     }

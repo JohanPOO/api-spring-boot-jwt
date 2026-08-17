@@ -12,6 +12,8 @@ import com.api.repository.EmpleadoRepository;
 import com.api.repository.PacienteRepository;
 import com.api.service.AtencionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -32,9 +34,9 @@ public class AtencionImpl implements AtencionService {
     private AtencionMapper mapper;
 
     @Override
-    public List<AtencionResponseDto> findAll() {
+    public List<AtencionResponseDto> findAll(Boolean estado, Pageable pageable) {
 
-        List<Atencion> listaAtencion = repository.findAll();
+        Page<Atencion> listaAtencion = repository.findByEstado(estado, pageable);
         List<AtencionResponseDto> listAtencionResponseDto = new ArrayList<>();
 
         for(Atencion atencion : listaAtencion){

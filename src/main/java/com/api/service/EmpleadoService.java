@@ -2,12 +2,13 @@ package com.api.service;
 
 import com.api.dto.empleado.EmpleadoRequestDto;
 import com.api.dto.empleado.EmpleadoResponseDto;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface EmpleadoService {
 
-    List<EmpleadoResponseDto> findAll();
+    List<EmpleadoResponseDto> findAll(Boolean estado, Pageable pageable);
 
     EmpleadoResponseDto findById(Long id);
 

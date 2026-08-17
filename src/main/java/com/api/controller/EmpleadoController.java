@@ -6,6 +6,7 @@ import com.api.dto.empleado.EmpleadoResponseDto;
 import com.api.service.EmpleadoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ public class EmpleadoController {
     private EmpleadoService service;
 
     @GetMapping()
-    public ResponseEntity<?> findAllTrue(){
-        List<EmpleadoResponseDto> listaEmpleadoResponseDto = service.findAll();
+    public ResponseEntity<?> findAllTrue(@RequestParam Boolean estado, Pageable pageable){
+        List<EmpleadoResponseDto> listaEmpleadoResponseDto = service.findAll(estado, pageable);
 
         ResponseDto<List<EmpleadoResponseDto>> response = new ResponseDto<>();
         response.setStatus(HttpStatus.OK);
