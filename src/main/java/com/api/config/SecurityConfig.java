@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/auth/**","/usuarios/save")
+                                "/auth/**")
                         .permitAll()
                         //Atenciones
                         .requestMatchers(HttpMethod.GET, "/atenciones").hasRole("ADMIN")
