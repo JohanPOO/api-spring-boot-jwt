@@ -30,6 +30,13 @@ Autenticación de usuarios mediante JWT
 - ✅ Validación de datos mediante Bean Validation
 - 🔒 Protección de endpoints mediante Spring Security
 
+## DB - PostgreSQL
+
+```bash
+1. Crear una base de datos PostgreSQL.
+2. Ejecutar `database.sql`.
+```
+
 ##  Instalación y ejecución
 
 Clonar el repositorio

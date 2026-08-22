@@ -30,33 +30,3 @@ DELETE http://localhost:8080/api/personas/9
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czMiLCJpYXQiOjE3ODY5OTg2MjQsImV4cCI6MTc4Njk5OTIyNH0.VEw11ULtylF2oFWAdF8yVIymzCN_sYuxoBpUSAm-VKY
 
 
-
-
-### USUARIO GETALL
-GET http://localhost:8080/usuario/find-all
-
-###USUARIO GETBYID
-GET http://localhost:8080/usuario/find/1
-
-### USUARIO SAVE
-POST http://localhost:8080/usuario/save
-Content-Type: application/json
-
-{
-    "usuario" : "us3",
-    "contraseña" : "us3",
-    "persona_id" : 5
-}
-
-### USUARIO PUT
-PUT http://localhost:8080/usuario/update/6
-Content-Type: application/json
-
-{
-    "usuario" : "usuario7",
-    "contraseña" : "password7",
-    "persona_id" : 2
-}
-
-### USUARIO DELETE
-DELETE http://localhost:8080/usuario/delete/2

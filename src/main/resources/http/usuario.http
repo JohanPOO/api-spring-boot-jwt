@@ -1,0 +1,30 @@
+### USUARIO GETALL
+GET http://localhost:8080/usuario/find-all
+
+###USUARIO GETBYID
+GET http://localhost:8080/usuario/find/1
+
+### USUARIO SAVE
+POST http://localhost:8080/usuario/save
+Content-Type: application/json
+
+{
+    "usuario" : "us3",
+    "contraseña" : "us3",
+    "persona_id" : 5
+}
+
+### USUARIO PUT
+PUT http://localhost:8080/usuario/update/15
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1czEiLCJpYXQiOjE3ODczNTU4OTUsImV4cCI6MTc4NzM1NjQ5NX0.-j9dDlPgJGTBRrmjGspsH_kPyXeGZVikML-X7XRnreI
+
+{
+    "usuario" : "example",
+    "contraseña" : "123456",
+    "persona_id" : 18
+}
+
+
+### USUARIO DELETE
+DELETE http://localhost:8080/usuario/delete/2
