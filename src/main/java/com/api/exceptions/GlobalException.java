@@ -45,7 +45,7 @@ public class GlobalException {
     public ResponseEntity<ErrorResponse<?>>internalAuthenticationServiceException(InternalAuthenticationServiceException ex){
         ErrorResponse<String> errorResponse = new ErrorResponse<>();
         errorResponse.setHttp(HttpStatus.NOT_FOUND);
-        errorResponse.setMessage("Error en la Autenticacion");
+        errorResponse.setMessage("Error en la seguridad");
         errorResponse.setErrors(ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
